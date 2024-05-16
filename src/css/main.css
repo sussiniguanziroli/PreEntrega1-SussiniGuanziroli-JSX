@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgray;
+  padding: 1rem;
+}
+.header h1 {
+  font-family: "Varela Round", sans-serif;
+  font-weight: 800;
+}
+
+.nav-menu {
+  display: flex;
+  list-style-type: none;
+  gap: 0.8rem;
+}
+
+.cart {
+  display: flex;
+}
+
+.nav-link, .cart-anchor {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+  z-index: 0;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  font-weight: 600;
+}
+
+.nav-link::before, .cart-anchor::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: white;
+  transition: width 0.3s ease, height 0.3s ease;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.nav-link:hover::before, .cart-anchor:hover::before {
+  width: 200%;
+  height: 200%;
+}
+
+.nav-link:hover, .cart-anchor:hover {
+  color: red;
+  transform: scale(1.05);
+}
+
+.nav-link:hover::after, .cart-anchor:hover::after {
+  transform: scaleX(1);
+}
+
+.cart-anchor {
+  list-style: none;
+  text-decoration: none;
+}
+
+.cart small {
+  color: red;
+}
+
+.items-container {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  display: grid;
+  min-height: 50vh;
+  place-items: center;
+  transition: transform 0.8s ease, opacity 0.5s ease;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+@keyframes flyAway {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(300px) translateY(100px) rotate(150deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-300px) translateY(-100px) rotate(270deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(200px) translateY(50px) rotate(360deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+.items-container:hover {
+  animation: flyAway 2s ease forwards;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+/*# sourceMappingURL=main.css.map */
